@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Epicfilme</title>
+    <title>Cineretro</title>
 </head>
 
 <body>
 
     <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Epicfilme</a>
+        <div class="nav-wrapper black">
+            <a href="#" class="brand-logo">Cineretrô</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li class="active"><a href="/filme">Todos</a></li>
+                <li class="active"><a href="/filme">Todos os filmes</a></li>
                 <li><a href="#">Avaliados</a></li>
                 <li><a href="#">Usuários</a></li>
                 <li>
@@ -30,7 +30,7 @@
         <div class="card-panel teal accent-3" th:if="${success}" th:text="${success}"></div>
         <div class="card-panel red accent-3 white-text" th:if="${error}" th:text="${error}"></div>
 
-        <h2>Todos</h2>
+        <h2>Todos os filmes </h2>
 
         <div class="row">
 
@@ -39,10 +39,10 @@
                     <div class="card-content">
                         <span th:text="${filme.title}" class="card-title"></span>
                         <p th:text="${filme.description}"></p>
-                        <span th:text="${filme.rating}" data-badge-caption="points" class="badge red white-text"></span>
+                        <span th:text="${filme.rating}" data-badge-caption="points" class="badge black white-text"></span>
                     </div>
                     <div class="card-action">
-                        <a th:href="${'/filme/delete/' + filme.id}" class="waves-effect waves-light btn red">
+                        <a th:href="${'/filme/delete/' + filme.id}" class="waves-effect waves-light btn black">
                             <i class="material-icons">delete</i>
                         </a>
 
@@ -57,7 +57,7 @@
 
 
     <div class="fixed-action-btn">
-        <a href="/filme/new" class="btn-floating btn-large red">
+        <a href="/filme/new" class="btn-floating btn-large black ">
             <i class="large material-icons">add</i>
         </a>
     </div>

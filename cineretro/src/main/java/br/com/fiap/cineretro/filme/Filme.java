@@ -1,5 +1,6 @@
 package br.com.fiap.cineretro.filme;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +23,7 @@ public class Filme {
     private String title;
 
     @Size(min = 10, message = "descrição deve ter pelo menos 20 caracteres")
+    @Column(name = "description", length = 500)
     private String description;
 
     @Min(1) @Max(10)
