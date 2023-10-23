@@ -19,10 +19,10 @@ public class Filme {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "campo título é obrigatório")
+    @NotBlank(message = "{filme.title.blank}")
     private String title;
 
-    @Size(min = 10, message = "descrição deve ter pelo menos 20 caracteres")
+    @Size(min = 10, message = "{filme.description.size}")
     @Column(name = "description", length = 500)
     private String description;
 

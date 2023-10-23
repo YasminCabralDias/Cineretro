@@ -1,6 +1,8 @@
 package br.com.fiap.cineretro.filme;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +21,9 @@ public class FilmeController {
     @Autowired
     FilmeService service;
 
+    @Autowired
+    MessageSource messageSource;
+
     @GetMapping
     public String index(Model model){
         model.addAttribute("filmes", service.findAll());
@@ -28,7 +33,10 @@ public class FilmeController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes redirect){
         if (service.delete(id)){
-            redirect.addFlashAttribute("success", "Filme apagado com sucesso");
+            redirect.addFlashAttribute("success",  messageSource.getMessage
+            ("filme.delete.success",
+             null, 
+             LocaleContextHolder.getLocale()));
         }else{
             redirect.addFlashAttribute("error", "Filme não encontrado");
         }
